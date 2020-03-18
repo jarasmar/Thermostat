@@ -63,4 +63,37 @@ describe('Thermostat', function() {
       expect(thermostat.getCurrentTemperature()).toEqual(32);
     });
   });
+
+  describe('RESET', function () {
+
+    it('Can reset temperature to default', function() {
+      for (var i = 0; i < 4; i++) {
+        thermostat.up();
+      };
+      thermostat.reset();
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
+    });
+  });
+
+  describe('Energy-Usage', function() {
+
+    it('low energy-usage', function(){
+       for (var i = 0; i < 3; i++) {
+         thermostat.down();
+       };
+       expect(thermostat.energyUsage()).toEqual('low-usage');
+    });
+
+    it('medium energy-usage', function(){
+      expect(thermostat.energyUsage()).toEqual('medium-usage');
+    });
+
+    it('high energy-usage', function(){
+      thermostat.switchPSMOff();
+      for (var i = 0; i < 6; i++) {
+        thermostat.up();
+      };
+      expect(thermostat.energyUsage()).toEqual('high-usage');
+    });
+  });
 });
