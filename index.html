@@ -7,26 +7,45 @@
     <script src="interface.js"></script>
     <title> Thermostat </title>
   </head>
-  <body>
-    <section>
-      <h1>Current Temperature <span id='current-temperature'></span></h1> 
-      <select id="current-city">
-        <option value="London">London</option>
-        <option value="Lieres">Lieres</option>
-        <option value="Helsinki">Helsinki</option>
-        <option value="Moscow">Moscow</option>
-      </select>
-    </section>
-    <section>
-      <h1 id='temperature'></h1>
-      <p>
-        <button id='temperature-up'> Up </button>
-        <button id='temperature-down'> Down </button>
-        <button id='temperature-reset'> Reset </button>
-        Power saving mode is <span id='power-saving-status'> on </span>
-        <button id='powersaving-on'> PSM On </button>
-        <button id='powersaving-off'> PSM Off </button>
-      </p>
-    </section>
+  <body class='body'>
+
+    <div class='split left'>
+      <div class='centered'>
+        <h1>OUTDOOR </h1>
+        <br>
+        <h1><span id='current-temperature'></span></h1>
+        <br>
+        <div class='dropdown'>
+          <select id="current-city">
+            <option value="London">London</option>
+            <option value="Lieres">Lieres</option>
+            <option value="Helsinki">Helsinki</option>
+            <option value="Moscow">Moscow</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class='split right'>
+      <div class='centered'>
+        <h1>INDOOR</h1>
+        <br>
+          <p>
+            <!-- <button id='temperature-up'> Up </button> -->
+            <!-- <button id='temperature-down'> Down </button> -->
+            <p><i  id='temperature-up' class="arrow up"></i></p>
+            <h1><span id='temperature'></span></h1>
+            <p><i id='temperature-down' class="arrow down"></i></p>
+            <a href='' id='temperature-reset'> RESET </a>
+          </p>
+
+          <br>
+          <p>
+            <button id='powersaving-on'> ON </button>
+            POWER SAVING
+            <button id='powersaving-off'> OFF </button>
+          </p>
+        </div>
+      </div>
   </body>
 </html>

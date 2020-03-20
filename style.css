@@ -1,11 +1,130 @@
+.body {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: #2f4f4f;
+}
+
+::selection {
+    color: #cfe2e2;
+    background: #2f4f4f;
+}
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #609f9f;
+  color: #1d3030;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #cfe2e2;
+  color: #2f4f4f;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* City selector menu */
+#current-city {
+  background-color: #cfe2e2;
+  width: 80%;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: #2f4f4f;
+  font-size: 18px;
+}
+
+#current-city:hover {
+  animation: none;
+}
+
+/* Color temperature for energy usage */
 .low-usage{
-    color: green
+    color: #339966;
 }
 
 .medium-usage{
-    color: black
+    color: #2f4f4f;
 }
 
 .high-usage{
-    color: red
+    color: #8B0000;
+}
+
+/* Temperature Control arrows */
+i {
+  border: solid #2f4f4f;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+i.up:hover {
+  border: solid #8B0000;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+i.down:hover {
+  border: solid #339966;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+#temperature-reset {
+  color: #2f4f4f;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+/* PSM On-Off Buttons */
+.reset-button {
+  background-color: #cfe2e2;
+  color: #2f4f4f;
+  border: 1px solid #2f4f4f;
+  border-radius: 50%;
+}
+
+.true {
+  background-color: #339966;
+  color: #cfe2e2;
+  border: 1px solid #cfe2e2;
+  border-radius: 50%;
+}
+
+.false {
+  background-color: #8B0000;
+  color: #cfe2e2;
+  border: 1px solid #cfe2e2;
+  border-radius: 50%;
 }

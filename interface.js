@@ -5,9 +5,13 @@ $(document).ready(function() {
 
   updateTemperature();
 
+  // Start with SPM on and reseted off (create function)
+  $('#powersaving-on').attr('class', thermostat.isPSMOn())
+  $('#powersaving-off').attr('class', 'reset-button')
+
   // This reads and updates the new temperature every time its modified
   function updateTemperature() {
-    $('#temperature').text(thermostat.temperature);
+    $('#temperature').text(thermostat.temperature + 'C');
     $('#temperature').attr('class', thermostat.energyUsage())
   };
 
@@ -28,22 +32,27 @@ $(document).ready(function() {
 
   $('#powersaving-on').click(function() {
     thermostat.switchPSMOn();
-    $('#power-saving-status').text('on');
+    $('#powersaving-on').attr('class', thermostat.isPSMOn())
+    $('#powersaving-off').attr('class', 'reset-button')
+
   });
 
   $('#powersaving-off').click(function() {
     thermostat.switchPSMOff();
-    $('#power-saving-status').text('off');
+    $('#powersaving-off').attr('class', thermostat.isPSMOn())
+    $('#powersaving-on').attr('class', 'reset-button')
   });
 
 
   // $('#current-city').change(function(){
   //   var city = $('#current-city').val();
-
+  //
   //    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function (data) {
-  
+  //
   //     $('#current-temperature').text(data.main.temp);
   //   });
+
+  // Refactored:
 
   $('#current-city').change(function(){
     var city = $('#current-city').val();
@@ -55,7 +64,7 @@ $(document).ready(function() {
     var token = '&appid=a3d9eb01d4de82b9b8d0849ef604dbed';
     var units = '&units=metric';
     $.get(url + token + units, function (data) {
-      $('#current-temperature').text(data.main.temp);
+      $('#current-temperature').text(data.main.temp + 'C');
     });
   };
 })
