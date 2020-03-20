@@ -112,19 +112,19 @@ i.down:hover {
   background-color: #cfe2e2;
   color: #2f4f4f;
   border: 1px solid #2f4f4f;
-  border-radius: 20%;
+  border-radius: 50%;
 }
 
 .true {
   background-color: #339966;
   color: #cfe2e2;
   border: 1px solid #cfe2e2;
-  border-radius: 20%;
+  border-radius: 50%;
 }
 
 .false {
   background-color: #8B0000;
   color: #cfe2e2;
   border: 1px solid #cfe2e2;
-  border-radius: 20%;
+  border-radius: 50%;
 }
