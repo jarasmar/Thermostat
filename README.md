@@ -11,5 +11,17 @@
 7. Power saving mode is on by default
 8. You can reset the temperature to 20 with a reset function
 9. You can ask about the thermostat's current energy usage: < 18 is low-usage, < 25 is medium-usage, anything else is high-usage.
-
 10. (In the challenges where we add an interface, low-usage will be indicated with green, medium-usage indicated with black, high-usage indicated with red.)
+
+
+##Projec set up##
+- Git clone the repo
+- Navigate to root directory and run `bundle install`
+- Create the PostgreSQL database
+
+```
+$ psql postgres
+$ CREATE DATABASE thermostat;
+$ \c thermostat
+$ CREATE TABLE data(id SERIAL PRIMARY KEY, temperature INT, power_saving BOOL);
+````
