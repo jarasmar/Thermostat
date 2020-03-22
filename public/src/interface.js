@@ -1,11 +1,12 @@
 $(document).ready(function() {
+
   var thermostat = new Thermostat();
 
+  // Start with Weather on London and thermostat default temperature/PSM
   displayWeather('London');
-
   updateTemperature();
 
-  // Start with SPM on and reseted off (create function)
+  // Start with SPM on and reseted off 
   $('#powersaving-on').attr('class', thermostat.isPSMOn())
   $('#powersaving-off').attr('class', 'reset-button')
 

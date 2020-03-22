@@ -10,6 +10,19 @@ function Thermostat() {
   this.LOW_USAGE_LIMIT = 18;
 }
 
+Thermostat.prototype.load = function(callback) {
+  $.get('http://localhost:9292/load', function(response) {
+    // converts data from a web server (string) into a JS object
+    // interface will display the JS object in the browser
+    var data = JSON.parse(response)
+    callback(data);
+  });
+}
+
+Thermostat.prototype.save = function(temperature, power_saving) {
+  // sends data in a JS object to the web server
+  $.post('http://localhost:9292/save', {temp: temperature, ps: PSMOn} );
+}
 
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;

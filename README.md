@@ -14,7 +14,7 @@
 10. (In the challenges where we add an interface, low-usage will be indicated with green, medium-usage indicated with black, high-usage indicated with red.)
 
 
-##Projec set up##
+## Project set up ##
 - Git clone the repo
 - Navigate to root directory and run `bundle install`
 - Create the PostgreSQL database
@@ -26,9 +26,9 @@ $ \c thermostat;
 $ CREATE TABLE data(id SERIAL PRIMARY KEY, temperature INT, power_saving BOOL);
 ````
 
-##How to run the application##
+## How to run the application ##
 - Navigate to the root of the project directory and start the server by typing the following command in the terminal:
 ```rb
-rackup
+$ rackup
 ```
-- Open Chrome and visit (http://localhost:9292/)[http://localhost:9292/]
+- Open Chrome and visit http://localhost:9292/
