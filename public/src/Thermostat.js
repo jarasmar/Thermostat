@@ -10,6 +10,7 @@ function Thermostat() {
   this.LOW_USAGE_LIMIT = 18;
 }
 
+// Saving and loading from DB
 Thermostat.prototype.load = function(callback) {
   $.get('http://localhost:9292/load', function(response) {
     // converts data from a web server (string) into a JS object
@@ -21,9 +22,10 @@ Thermostat.prototype.load = function(callback) {
 
 Thermostat.prototype.save = function(temperature, power_saving) {
   // sends data in a JS object to the web server
-  $.post('http://localhost:9292/save', {temp: temperature, ps: PSMOn} );
+  $.post('http://localhost:9292/save', {temperature: this.temperature, power_saving: this.PSMOn} );
 }
 
+// App functionality
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
 }

@@ -27,8 +27,4 @@ $ CREATE TABLE data(id SERIAL PRIMARY KEY, temperature INT, power_saving BOOL);
 ````
 
 ## How to run the application ##
-- Navigate to the root of the project directory and start the server by typing the following command in the terminal:
-```rb
-$ rackup
-```
-- Open Chrome and visit http://localhost:9292/
+- Open your `index.html` in your browser.

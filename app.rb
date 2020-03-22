@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 require './lib/saved_data'
 
 class Thermostat < Sinatra::Base

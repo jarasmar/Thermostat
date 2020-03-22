@@ -1,12 +1,14 @@
 $(document).ready(function() {
 
-  var thermostat = new Thermostat();
+  var thermostat = new Thermostat
+  var temperature = thermostat.temperature;
+  var power_saving = thermostat.PSMOn;
 
   // Start with Weather on London and thermostat default temperature/PSM
   displayWeather('London');
-  updateTemperature();
+  updateTemperature(temperature);
 
-  // Start with SPM on and reseted off 
+  // Start with SPM on and reseted off
   $('#powersaving-on').attr('class', thermostat.isPSMOn())
   $('#powersaving-off').attr('class', 'reset-button')
 
@@ -16,32 +18,50 @@ $(document).ready(function() {
     $('#temperature').attr('class', thermostat.energyUsage())
   };
 
+  // Loads the DB Data
+  function load() {
+    thermostat.load(function (data) {
+      // gets the temperature string and returns an integer
+      thermostat.temperature = parseInt(data.temperature);
+      $('#temperature').text(thermostat.temperature + 'C');
+      // gets the power mode
+      thermostat.power_saving = data.power_saving;
+    });
+  };
+
+  load();
+
+  // Functionality
   $('#temperature-up').click(function() {
     thermostat.up();
-    updateTemperature();
+    updateTemperature(temperature);
+    thermostat.save(temperature, power_saving);
   });
 
   $('#temperature-down').click(function() {
     thermostat.down();
-    updateTemperature();
+    updateTemperature(temperature);
+    thermostat.save(temperature, power_saving);
   });
 
   $('#temperature-reset').click(function() {
     thermostat.reset();
-    updateTemperature();
+    updateTemperature(temperature);
+    thermostat.save(temperature, power_saving);
   });
 
   $('#powersaving-on').click(function() {
     thermostat.switchPSMOn();
     $('#powersaving-on').attr('class', thermostat.isPSMOn())
     $('#powersaving-off').attr('class', 'reset-button')
-
+    thermostat.save(temperature, power_saving);
   });
 
   $('#powersaving-off').click(function() {
     thermostat.switchPSMOff();
-    $('#powersaving-off').attr('class', thermostat.isPSMOn())
-    $('#powersaving-on').attr('class', 'reset-button')
+    $('#powersaving-off').attr('class', thermostat.isPSMOn());
+    $('#powersaving-on').attr('class', 'reset-button');
+    thermostat.save(temperature, power_saving);
   });
 
 
